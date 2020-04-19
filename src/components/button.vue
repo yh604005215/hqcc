@@ -5,7 +5,8 @@
   {'is-round' : round},
   {'is-circle' : circle},
   {'is-disabled' : disabled},
-  {'is-loading' : loading}]"
+  {'is-loading' : loading},
+  {[`yh-button-${size}`] : size}]"
   v-bind="{disabled:disabled,disabled:loading}"
   @click="getClick">
     <template v-if="loading">
@@ -52,6 +53,12 @@ export default {
     loading: {
       type: Boolean,
       default: false
+    },
+    size: {
+      type: String,
+      validator (val) {
+        return /^mini$/.test(val) || /^small$/.test(val) || /^medium$/.test(val)
+      }
     }
   },
   methods: {

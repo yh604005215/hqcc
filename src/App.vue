@@ -56,8 +56,18 @@
       <yh-button disabled plain type="warning">豪哥牛逼</yh-button>
       <yh-button disabled plain type="danger">豪哥牛逼</yh-button>
     </div>
+    <div class="row">
+      <yh-button
+      :loading="loading"
+      @click="fn1"
+      size='mini'
+      >豪哥</yh-button>
+      <yh-button size="medium">中等按钮</yh-button>
+      <yh-button size="small">小型按钮</yh-button>
+      <yh-button size="mini">超小按钮</yh-button>
+    </div>
     <div>
-      <yh-button :loading="loading" @click="fn1">豪哥</yh-button>
+      <yh-button native-type="submit"></yh-button>
     </div>
   </div>
 </template>
