@@ -4,8 +4,9 @@
   {'is-plain' : plain},
   {'is-round' : round},
   {'is-circle' : circle},
-  {'is-disabled' : disabled}]"
-  :disabled="disabled"
+  {'is-disabled' : disabled},
+  {'is-loading' : loading}]"
+  v-bind="{disabled:disabled,disabled:loading}"
   @click="getClick">
     <template v-if="loading">
       <i class="yh-icon-loading"></i>
