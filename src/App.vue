@@ -66,8 +66,9 @@
       <yh-button size="small">小型按钮</yh-button>
       <yh-button size="mini">超小按钮</yh-button>
     </div>
-    <div>
-      <yh-button native-type="submit"></yh-button>
+    <div class="row">
+      <yh-button native-type="submit">豪哥</yh-button>
+      <yh-button autofocus>豪哥</yh-button>
     </div>
   </div>
 </template>

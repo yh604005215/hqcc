@@ -7,8 +7,10 @@
   {'is-disabled' : disabled},
   {'is-loading' : loading},
   {[`yh-button-${size}`] : size}]"
-  v-bind="{disabled:disabled,disabled:loading}"
-  @click="getClick">
+  v-bind="{disabled, disabled:loading, autofocus}"
+  @click="getClick"
+  :type="nativeType"
+  >
     <template v-if="loading">
       <i class="yh-icon-loading"></i>
       <span v-if="loading">加载中</span>
@@ -58,6 +60,16 @@ export default {
       type: String,
       validator (val) {
         return /^mini$/.test(val) || /^small$/.test(val) || /^medium$/.test(val)
+      }
+    },
+    autofocus: {
+      type: Boolean,
+      default: false
+    },
+    'native-type': {
+      type: String,
+      validator (val) {
+        return /^button$/.test(val) || /^submit$/.test(val) || /^reset$/.test(val)
       }
     }
   },
