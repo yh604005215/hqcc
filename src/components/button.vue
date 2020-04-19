@@ -1,0 +1,62 @@
+<template>
+  <button class="yh-button"
+  :class="[`yh-button-${type}`,
+  {'is-plain' : plain},
+  {'is-round' : round},
+  {'is-circle' : circle},
+  {'is-disabled' : disabled}]"
+  :disabled="disabled"
+  @click="getClick">
+    <template v-if="loading">
+      <i class="yh-icon-loading"></i>
+      <span v-if="loading">加载中</span>
+    </template>
+    <template v-else>
+      <i v-if="icon" :class="icon"></i>
+      <span v-if="$slots.default"><slot /></span>
+    </template>
+  </button>
+</template>
+
+<script>
+import '../assets/scss/button.scss'
+
+export default {
+  name: 'yh-button',
+  props: {
+    type: {
+      type: String,
+      default: 'default'
+    },
+    plain: {
+      type: Boolean,
+      default: false
+    },
+    round: {
+      type: Boolean,
+      default: false
+    },
+    circle: {
+      type: Boolean,
+      default: false
+    },
+    icon: {
+      type: String,
+      default: ''
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    getClick (event) {
+      this.$emit('click', event)
+    }
+  }
+}
+</script>
